@@ -8,9 +8,15 @@
 
 ## Режимы конвертации
 ogf - object
+
 ogf - bones
+
 ogf - skls
+
 ogf - skl
+
 omf - skls
+
 omf - skl
+
 dm  - object
