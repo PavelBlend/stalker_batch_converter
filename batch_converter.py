@@ -2,8 +2,8 @@ import os, time
 from tkinter import *
 
 
-inputDir = 'input\\'
-outputDir = 'output\\'
+inputDir = 'input'
+outputDir = 'output'
 if not os.access(outputDir, os.F_OK):
     os.makedirs(outputDir)
 if not os.access(inputDir, os.F_OK):
@@ -21,12 +21,12 @@ def run_command(fmtIn, fmtOut, all=False):
     for root, dirs, files in os.walk(inputDir):
         for filePath in files:
             ext = filePath.split(os.extsep)[-1]
-            outName = root[len(inputDir): ] + os.sep + filePath[0 : -(len(ext) + 1)]
+            outName = root[len(inputDir): ] + filePath[0 : -(len(ext) + 1)]
             if ext == fmtIn:
                 if not all:
                     command = 'converter.exe -{0} -{1} {2} -out {3}.{1}'.format(fmtIn, fmtOut, root + os.sep + filePath, outputDir + os.sep + outName)
                 else:
-                    command = 'converter.exe -{0} -{1} all {2} -out {3}'.format(fmtIn, fmtOut, root + os.sep + filePath, outputDir + os.sep + outName)
+                    command = 'converter.exe -{0} -{1} all {2} -dir {3}'.format(fmtIn, fmtOut, root + os.sep + filePath, outputDir + os.sep + outName)
                 if os.system(command) == 0:
                     print(command, file=logFile)
                 else:
@@ -120,4 +120,3 @@ OmfSkl.bind    (LBM, omf_skl)
 DmObject.bind  (LBM, dm_object)
 root.mainloop()
 logFile.close()
-
