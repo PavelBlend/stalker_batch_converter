@@ -2,5 +2,6 @@ __pycache__
 *.bat
 *.exe
 *.log
+*.zip
 input
 output
