@@ -142,8 +142,8 @@ dm_object_button = tkinter.Button(
 )
 
 # labels
-ver = tkinter.Label(frame, text='version 0.0.4', font=LABEL_FONT, bg=BACKGROUND_COLOR)
-date = tkinter.Label(frame, text='07.06.2019', font=LABEL_FONT, bg=BACKGROUND_COLOR)
+ver = tkinter.Label(frame, text='version 0.0.5', font=LABEL_FONT, bg=BACKGROUND_COLOR)
+date = tkinter.Label(frame, text='14.06.2019', font=LABEL_FONT, bg=BACKGROUND_COLOR)
 timer = tkinter.Label(frame, text='', font=LABEL_FONT, bg=BACKGROUND_COLOR)
 
 # grid
