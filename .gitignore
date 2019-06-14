@@ -1,0 +1,6 @@
+__pycache__
+*.bat
+*.exe
+*.log
+input
+output
