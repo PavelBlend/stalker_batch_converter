@@ -29,30 +29,27 @@ def run_command(input_format, output_format, all_option=False):
     if not os.access(output_path, os.F_OK):
         os.makedirs(output_path)
 
-    for root, dirs, files in os.walk(input_path):
+    for root_folder, dirs, files in os.walk(input_path):
         for file_path in files:
             ext = file_path.split(os.extsep)[-1]
-            out_name = root[len(input_path): ] + os.sep + file_path[0 : -(len(ext) + 1)]
+            out_name = root_folder[len(input_path): ] + file_path[0 : -(len(ext) + 1)]
             if ext == input_format:
                 if not all_option:
                     command = 'converter.exe -{0} -{1} "{2}" -out "{3}.{1}"'.format(
                         input_format,
                         output_format,
-                        root + os.sep + file_path,
-                        output_path + out_name
+                        os.path.join(root_folder, file_path),
+                        os.path.join(output_path, out_name)
                     )
                 else:
                     command = 'converter.exe -{0} -{1} all "{2}" -dir "{3}"'.format(
                         input_format,
                         output_format,
-                        root + os.sep + file_path,
-                        output_path + out_name
+                        os.path.join(root_folder, file_path),
+                        os.path.join(output_path, out_name)
                     )
-                if os.system(command) == 0:
-                    log_text += command + '\n'
-                else:
-                    log_text += command + '\n'
-                    log_text += 'Error!!! %s not converted\n' % file_path
+                os.popen(command)
+                log_text += command + '\n'
 
     total_time = time.time() - start_time
     log_text += 'TIME: {}\n\n'.format(total_time)
