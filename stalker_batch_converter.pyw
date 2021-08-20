@@ -48,11 +48,14 @@ def run_command(input_format, output_format, all_option=False):
                         os.path.join(output_path, out_name)
                     )
                 else:
+                    out_dir = os.path.join(output_path, out_name)
+                    if not os.path.exists(out_dir):
+                        os.makedirs(out_dir)
                     command = 'converter.exe -{0} -{1} all "{2}" -dir "{3}"'.format(
                         input_format,
                         output_format,
                         os.path.join(root_folder, file_path),
-                        os.path.join(output_path, out_name)
+                        out_dir
                     )
                 os.popen(command)
                 log_text += command + '\n'
