@@ -4,6 +4,9 @@ from tkinter import filedialog
 from xray import xray_ltx
 
 
+VERSION = (0, 0, 7)
+
+
 def run_command(input_format, output_format, all_option=False):
     # save settings
     input_dir = input_path_ent.get()
@@ -135,7 +138,7 @@ root = tkinter.Tk()
 root.resizable(height=False, width=False)
 root.minsize(width=320, height=320)
 root.maxsize(width=320, height=320)
-root.title('Batch Converter v0.0.6')
+root.title('Batch Converter v{}.{}.{}'.format(*VERSION))
 root['bg'] = BACKGROUND_COLOR
 x = (root.winfo_screenwidth()) / 2
 y = (root.winfo_screenheight()) / 2
@@ -190,8 +193,8 @@ dm_object_button = tkinter.Button(
 )
 
 # labels
-ver = tkinter.Label(frame, text='version 0.0.6', font=LABEL_FONT, bg=BACKGROUND_COLOR)
-date = tkinter.Label(frame, text='23.10.2019', font=LABEL_FONT, bg=BACKGROUND_COLOR)
+ver = tkinter.Label(frame, text='version {}.{}.{}'.format(*VERSION), font=LABEL_FONT, bg=BACKGROUND_COLOR)
+date = tkinter.Label(frame, text='2021.07.17', font=LABEL_FONT, bg=BACKGROUND_COLOR)
 timer = tkinter.Label(frame, text='', font=LABEL_FONT, bg=BACKGROUND_COLOR)
 
 # grid
