@@ -35,7 +35,10 @@ def run_command(input_format, output_format, all_option=False):
     for root_folder, dirs, files in os.walk(input_path):
         for file_path in files:
             ext = file_path.split(os.extsep)[-1]
-            out_name = root_folder[len(input_path): ] + file_path[0 : -(len(ext) + 1)]
+            out_name = os.path.join(
+                root_folder[len(input_path): ],
+                file_path[0 : -(len(ext) + 1)]
+            )
             if ext == input_format:
                 if not all_option:
                     command = 'converter.exe -{0} -{1} "{2}" -out "{3}.{1}"'.format(
