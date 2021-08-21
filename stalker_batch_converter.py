@@ -57,8 +57,16 @@ def run_command(input_format, output_format, all_option=False):
                         os.path.join(root_folder, file_path),
                         out_dir
                     )
-                os.popen(command)
-                log_text += command + '\n'
+                relative_dir = root_folder[len(input_path) : ]
+                relative_path = os.path.join(relative_dir, file_path)
+                final_command = 'echo off\n' + command
+                if os.system(final_command) == 0:
+                    print(relative_path)
+                    log_text += command + '\n'
+                else:
+                    print('ERROR:', relative_path)
+                    log_text += command + '\n'
+                    log_text += 'Error!!! %s not converted\n' % file_path
 
     total_time = time.time() - start_time
     log_text += 'TIME: {}\n\n'.format(total_time)
