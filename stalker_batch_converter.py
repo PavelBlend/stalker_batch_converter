@@ -4,7 +4,7 @@ from tkinter import filedialog
 from xray import xray_ltx
 
 
-VERSION = (0, 0, 7)
+VERSION = (0, 0, 8)
 
 
 def run_command(input_format, output_format, all_option=False):
@@ -208,7 +208,7 @@ dm_object_button = tkinter.Button(
 
 # labels
 ver = tkinter.Label(frame, text='version {}.{}.{}'.format(*VERSION), font=LABEL_FONT, bg=BACKGROUND_COLOR)
-date = tkinter.Label(frame, text='2021.07.17', font=LABEL_FONT, bg=BACKGROUND_COLOR)
+date = tkinter.Label(frame, text='2021.08.21', font=LABEL_FONT, bg=BACKGROUND_COLOR)
 timer = tkinter.Label(frame, text='', font=LABEL_FONT, bg=BACKGROUND_COLOR)
 
 # grid

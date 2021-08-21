@@ -2,7 +2,7 @@ from zipfile import ZipFile, ZIP_DEFLATED
 from os import path, walk
 
 
-version = (0, 0, 6)
+version = (0, 0, 8)
 with ZipFile('stalker_batch_converter_' + ('.'.join(map(str, version))) + '.zip', 'w') as z:
     z.write(
         'stalker_batch_converter.py',
